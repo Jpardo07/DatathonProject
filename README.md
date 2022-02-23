@@ -1,9 +1,2 @@
 # DatathonProject
-Private project that houses the advances for the Cajamar Datathon. Members: Javier Pardo, Daniel Piritz, Alejandro Vidal
-
-Test
-
-
-print2swxwex
-
-Prueba Javier
+Private repository that houses the project for the Cajamar Datathon. Members: Javier Pardo, Daniel Piriz, Alejandro Vidal
