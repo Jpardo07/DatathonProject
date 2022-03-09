@@ -1,5 +1,17 @@
+
+# Virtual Environments
 penv
+renv
+
+# VsCode workspace configuration
 datathon.code-workspace
 
+# R personal configuratiom
+.Rprofile
+renv.lock
+
+# Specifical Folders
 Cajamar_Agro_Analysis_EOI_Datacrop
 Cajamar_Agro_Analysis_Mondragon_Unibertsitatea_The_Data_Masters
+
+
