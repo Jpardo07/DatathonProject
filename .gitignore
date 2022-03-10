@@ -14,5 +14,8 @@ renv.lock
 Cajamar_Agro_Analysis_EOI_Datacrop
 Cajamar_Agro_Analysis_Mondragon_Unibertsitatea_The_Data_Masters
 
-
+# Log from webdriver chosen
 geckodriver.log
+
+# Folder which saves compiled python files
+src/__pycache__/*
