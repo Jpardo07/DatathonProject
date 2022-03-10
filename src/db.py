@@ -14,10 +14,11 @@ def CreateCon(dbFile):
 		if con:
 			con.close()
             
-def PrepareCon(con,cur,values=(), where=[], tableName = tableMain, option="create", closeDB = False):
+def PrepareCon(con,cur,values=(), where=[], tableName = tableMain, option="create", closeDB = False,verbose=True):
 
 	if option == "create":
-		print("Creando tabla...")
+		if verbose ==True:
+			print("Creando tabla...")
 		cur.execute(f'''CREATE TABLE IF NOT EXISTS "{tableName}" 
 			("ID" INTEGER PRIMARY KEY AUTOINCREMENT, 
 			"Country" TEXT, 
@@ -26,18 +27,22 @@ def PrepareCon(con,cur,values=(), where=[], tableName = tableMain, option="creat
 			"Zipcode" TEXT)
             ;''')
 		con.commit()
-		print("OK")
+		if verbose ==True:
+			print("OK")
 		
 	if option == "insert":
-		print("Insertando datos...")
+		if verbose ==True:
+			print("Insertando datos...")
 		cur.execute(f'''INSERT INTO "{tableName}" 
 			(Country,Region,City,Zipcode)
 		VALUES (?,?,?,?);''', values)
 		con.commit()
-		print("OK")
+		if verbose ==True:
+			print("OK")
 	
 	if option == "update":
-		print("Actualizando datos...")
+		if verbose ==True:
+			print("Actualizando datos...")
 		cur.execute(f'''UPDATE {tableName} SET 
 				    Country = ?,
                     Region = ?,
@@ -45,21 +50,16 @@ def PrepareCon(con,cur,values=(), where=[], tableName = tableMain, option="creat
                     Zipcode = ?,
                     WHERE {where[0]} = "{where[1]}"''', values)
 		con.commit()
-		print("OK")
-		
-	if option == "add":
-		print("Añadiendo nueva fila...")
-		cur.execute(f'''INSERT INTO "{tableName}" 
-			(Country,Region,City,Zipcode)
-			VALUES(?,?,?,?);''', values)
-		con.commit()
-		print("OK")
+		if verbose ==True:
+			print("OK")
 		
 	if option =="delete":
-		print("Borrando fila...")
+		if verbose ==True:
+			print("Borrando fila...")
 		cur.execute(f'''DELETE FROM {tableName} WHERE {where[0]} = "{where[1]}"''')
 		con.commit
-		print("OK")
+		if verbose ==True:
+			print("OK")
 	
 	if closeDB == True:
 		con.close()
@@ -83,11 +83,16 @@ def SqlConnection(routeDB):
         	return False
     
 
-def GetThings(cur, where=[], selection="Country"):
+def GetThings(cur, where=[], selection="Zipcode", limit= "", simplify=False):
+	if limit == "":
+		limit = cur.execute(F"SELECT (select count() from {tableMain}) as count FROM {tableMain} LIMIT 1").fetchone()[0]
 	if where == []:
-        	cur.execute(f"SELECT {selection} FROM {tableMain}")
+        	cur.execute(f"SELECT {selection} FROM {tableMain} LIMIT {limit}")
 	else:
-        	cur.execute(f"SELECT {selection} FROM {tableMain} WHERE {where[0]} = '{where[1]}'")
-        
-	thingExtract = cur.fetchall()
+        	cur.execute(f"SELECT {selection} FROM {tableMain} WHERE {where[0]} = '{where[1]}' LIMIT {limit}")
+    
+	if simplify == True:
+		thingExtract = cur.fetchone()
+	else:
+		thingExtract = cur.fetchall()
 	return thingExtract
