@@ -20,11 +20,12 @@ def PrepareCon(con,cur,values=(), where=[], tableName = tableMain, option="creat
 		if verbose ==True:
 			print("Creando tabla...")
 		cur.execute(f'''CREATE TABLE IF NOT EXISTS "{tableName}" 
-			("ID" INTEGER PRIMARY KEY AUTOINCREMENT, 
+			("ID" INTEGER PRIMARY KEY AUTOINCREMENT,
 			"Country" TEXT, 
 			"Region" TEXT,
 			"City" TEXT, 
-			"Zipcode" TEXT)
+			"Zipcode" TEXT,
+			"id_ori" TEXT, )
             ;''')
 		con.commit()
 		if verbose ==True:
@@ -34,8 +35,8 @@ def PrepareCon(con,cur,values=(), where=[], tableName = tableMain, option="creat
 		if verbose ==True:
 			print("Insertando datos...")
 		cur.execute(f'''INSERT INTO "{tableName}" 
-			(Country,Region,City,Zipcode)
-		VALUES (?,?,?,?);''', values)
+			(Country,Region,City,Zipcode,id_ori)
+		VALUES (?,?,?,?,?);''', values)
 		con.commit()
 		if verbose ==True:
 			print("OK")
@@ -48,6 +49,7 @@ def PrepareCon(con,cur,values=(), where=[], tableName = tableMain, option="creat
                     Region = ?,
                     City = ?,
                     Zipcode = ?,
+					id_ori = ?,
                     WHERE {where[0]} = "{where[1]}"''', values)
 		con.commit()
 		if verbose ==True:
