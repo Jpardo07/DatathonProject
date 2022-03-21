@@ -1,0 +1,71 @@
+---
+title: "prueba_arima"
+author: "Daniel Píriz"
+date: "19/3/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+source("Funciones_R.R")
+
+# Instalar/cargar las librerías mediante la función paquete de Funciones_R
+paquetes(c('readxl','fpp2','tseries','forecast','ggplot2','seasonal','descomponer','TSA', 'tinytex', 'dplyr', "factoextra","cluster","fpc", "clValid", "qgraph","devtools", "FactoMineR", "RcmdrMisc","GPArotation"))
+```
+
+
+
+```{r}
+datos_python <- read.csv('C:/Users/Daniel/Documents/GitHub/DatathonProject/df_by_weeks.csv')
+```
+
+
+
+```{r}
+
+
+
+datos_python$fecha = as.Date(datos_python$fecha)
+weekno <- as.numeric(datos_python$fecha - datos_python$fecha[1]) %/% 7
+Week <- datos_python$fecha[1] + 7 * weekno
+
+datos_python = aggregate(margin_total ~ Week, datos_python, sum)
+
+datos_python$fecha = NULL
+
+serie <- ts(datos_python$price_total, frequency= 52, start=c(2017,01,01))
+serie = serie[1]
+# serie_tr <- ts(datos_python[1:85,"margin_total"], frequency= 52, start=c(2017,01,01))
+# serie_tst <- ts(datos_python[86:105,"margin_total"], frequency= 52, start=c(2018,08,19))
+
+serie_tr<-window(x = serie, end = c(2017))
+serie_tst<-window(x = serie, start = c(2018,12))
+
+serie_hw_mul <- hw(serie, h=12, seasonal="multiplicative",level = c(80, 95))
+serie_hw_add <- hw(serie, h=4,level = c(80, 95))
+
+arimaAuto<- auto.arima(serie,seasonal=TRUE)
+```
+
+
+
+```{r}
+round(accuracy(arimaAuto),3)
+```
+
+
+```{r}
+
+predAuto <- forecast(arimaAuto, h=5)
+round(accuracy(predAuto, serie_tst),3)
+```
+
+```{r}
+predAuto %>% autoplot() 
+```
+
+
