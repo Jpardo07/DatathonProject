@@ -158,7 +158,7 @@ rawDataZipcode = list(zip(itemsOrdered["city"].tolist(), itemsOrdered["zipcode"]
 len(rawDataZipcode)
 
 
-# **Funciones destacadas**
+# Funciones destacadas
 
 
 # Función que "limpia" los nombres de ciudades para mejorar su emparejamiento automático
@@ -314,7 +314,7 @@ def zipCodeManipulation(city, zipcode, queryResult="", saved = False):
 
 
 
-# **Webscrapping!**
+# Scrapping!
 
 logger.info("Starting Webscrapping!")
 
@@ -366,7 +366,7 @@ driver.close()
 
 
 
-# **Transformación del scrapeo formateado a dataframe de Pandas**
+# Transformación del scrapeo formateado a dataframe de Pandas
 
 
 sqlToList = cur.execute(f"SELECT Country,Region,City,Zipcode FROM {tableMain}").fetchall()
@@ -375,6 +375,8 @@ df = pd.DataFrame(sqlToList, columns=["Country","Region","City","Zipcode"])
 
 df.to_csv("ScrappedDB.csv")
 
+
+# Cierre de base de datos final
 con.close()
 
 
