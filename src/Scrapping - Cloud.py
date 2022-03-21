@@ -1,42 +1,34 @@
-
+# -----------------------------
 #  Libraries import
-
+# -----------------------------
 
 import pandas as pd # Dataframes management
 from zipfile import ZipFile  # Files compressed management
 import os # Files management along OS
-import re
+import re # Expresiones regulares
 
-
-from os import mkdir
+from os import mkdir # Comprobaciones de existencia de archivos etc.
 from os.path import exists
 
-
-from selenium import webdriver # Webscrapping bot
-from selenium.webdriver.common.by import By
-from selenium.webdriver.common.keys import Keys
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.firefox.options import Options
-
-
-import nltk
+import nltk # Procesamiento del lenguaje natural
 from nltk.tokenize import word_tokenize, sent_tokenize
 from nltk.corpus import stopwords
 
-
-import logging
+import logging # Para generar logs
 import datetime
 import sys
 
 
-#  Modules
+# -----------------------------
+# Importación de módulos
+# -----------------------------
 
-
+# Módulo personal para manejar la Base de datos del proyecto
 from db import *
 
-
+# -----------------------------
 #  Data import
-
+# -----------------------------
 
 # Specifying the name of the zip file
 fileZIP = "/items_ordered_2years_V2.zip"
@@ -67,8 +59,9 @@ print("Original CSV removed to preserve repo health")
 del zip
 
 
+# -----------------------------
 # Arreglos para facilitar el webscrapping
-
+# -----------------------------
 
 itemsOrdered.loc[itemsOrdered['zipcode'].eq('30139') & itemsOrdered['city'].eq('Murcia'), "city"] = "EL RAAL"
 itemsOrdered['zipcode'] = itemsOrdered['zipcode'].replace("29039", "28039")
@@ -89,20 +82,14 @@ itemsOrdered.loc[itemsOrdered['zipcode'].eq('36194'), "city"] = "Perdecanai"
 itemsOrdered.loc[itemsOrdered['zipcode'].eq('29631'), "city"] = "Arroyo De La Miel"
 itemsOrdered.loc[itemsOrdered['zipcode'].eq('27810'), "city"] = "Sancobade"
 itemsOrdered['zipcode'] = itemsOrdered['zipcode'].replace("-39840", "39840")
-
-itemsOrdered.loc[itemsOrdered['zipcode'].eq('50620'), "city"] = "Casetas"
-
 itemsOrdered.loc[itemsOrdered['zipcode'].eq('50620'), "city"] = "Casetas"
 
 
-itemsOrdered[itemsOrdered["city"]=="Lisboa"].head(2)
-
-
+# -----------------------------
 #  SCRAPEO DE BASE DE DATOS 
-
+# -----------------------------
 
 # Detección de Base de Datos para almacenamiento de resultados formateados del Scrapping
-
 
 def IntroDB():
     try:
@@ -129,40 +116,33 @@ def IntroDB():
         return con, cur
 
 
-
 con, cur = IntroDB()
 
-
+%%capture
 try:
-    if GetThings(cur, selection="Country,Region,City,Zipcode", where=["ID", 1], limit=1)[0][0] == "Test":
+    if GetThings(cur, selection="Country,Region,City,Zipcode,id_ori", where=["ID", 1], limit=1)[0][0] == "Test":
         PrepareCon(con,cur,where=["ID",1],option="delete")
         cur.execute("UPDATE `sqlite_sequence` SET `seq` = 0 WHERE `name` = 'ZipsInfo';")
 except IndexError:
     pass
 
 '''
-Check the next query if something perturbe your mind
+Check the next query if something was wrong
 SELECT * FROM `sqlite_sequence`;
 '''
 
 
-GetThings(cur, selection="Country,Region,City,Zipcode", where=["ID", 1], limit=1)
-
-
 # A continuación se genera una lista compuesta de tuplas compuestas de la siguiente forma: ("Ciudad", "Zipcode")
-
 
 rawDataZipcode = list(zip(itemsOrdered["city"].tolist(), itemsOrdered["zipcode"].tolist()))
 
 
-len(rawDataZipcode)
-
-
+# -----------------------------
 # Funciones destacadas
+# -----------------------------
 
 
 # Función que "limpia" los nombres de ciudades para mejorar su emparejamiento automático
-
 
 def CityCleaner(text):
     stopWordSpanish = set(stopwords.words('spanish'))
@@ -171,11 +151,9 @@ def CityCleaner(text):
     return filteredSentence
  
 
-
 # Función que limpia zipcodes
 
-
-#Limpieza de zipcodes con RegEx
+# Limpieza de zipcodes con RegEx
 def num_guion(string):
     """ Get a string with the numbers and hyphens of another string
     
@@ -191,12 +169,10 @@ def num_guion(string):
     except:
         return string
 
-
 itemsOrdered["zipcode"] = itemsOrdered["zipcode"].apply(lambda x: num_guion(x))
 
 
 # Función que limpia los acentos con el fin de homogeneizar
-
 
 def AcentosLimpiador(text):
 	acentos = {'ñ':'n','á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'à':'a'}
@@ -207,7 +183,6 @@ def AcentosLimpiador(text):
 
 
 # Configuración de logging del scrapeo
-
 
 logger = logging.getLogger('ScrapLog')
 logger.setLevel(logging.INFO)
@@ -230,9 +205,7 @@ logging.basicConfig(
 )
 
 
-
 # Función que formatea los resultados del webscrapping de forma adecuada a los requerimientos necesarios
-
 
 def zipCodeManipulation(city, zipcode, queryResult="", saved = False):
   
@@ -297,26 +270,18 @@ def zipCodeManipulation(city, zipcode, queryResult="", saved = False):
                 elif resultZip ==[] : #ELIMINAR ESTA LÍNEA PARA PODER VERIFICAR ERRORES
                     resultZip = ["ERROR1","ERROR","ERROR",zipcode]
                     
-                    
-
     elif saved == True:
         resultZip = GetThings(cur, selection="Country,Region,City,Zipcode", where=["Zipcode", zipcode], limit=1, simplify = True)
 
-    if resultZip[3].startswith(" L'"):
-        resultZip = [resultZip[0],resultZip[1],resultZip[2],zipcode]
-    
-    if len(resultZip[3]) >= 20 and resultZip[0]=="Portugal":
-        resultZip = [resultZip[0],resultZip[1],resultZip[2],zipcode]
-
-    i = (resultZip[3]+resultZip[3]).find(resultZip[3], 1, -1)
-    return resultZip if i == -1 else [resultZip[0],resultZip[1],resultZip[2],zipcode]
+    return resultZip 
 
 
 
+# -----------------------------
+# Consultas a la BBDD local
+# -----------------------------
 
-# Scrapping!
-
-logger.info("Starting Webscrapping!")
+logger.info("Starting Local Scrapping!")
 
 for pos, element in enumerate(rawDataZipcode):
     try:
@@ -338,9 +303,9 @@ for pos, element in enumerate(rawDataZipcode):
 
         if GetThings(cur, selection="Zipcode", where=["Zipcode", element[1].rstrip()], limit=1, simplify=True) == None:  
                 
-                logger.info(f"Para scrapear |Ciudad: {element[0]} | Zipcode: {element[1]} | Orden del dataframe: {pos}")
+                logger.info(f"Para scrapear, pero no es el caso en este código |Ciudad: {element[0]} | Zipcode: {element[1]} | Orden del dataframe: {pos}")
     
-                zipCodeDef = ["ERROR2","ERROR","ERROR",element[1],pos]
+                zipCodeDef = ["ERROR2","ERROR","ERROR",element[1]]
                 logger.info(f"No Scrapeado: {zipCodeDef}")
 
         else:
@@ -366,10 +331,13 @@ driver.close()
 
 
 
+# -----------------------------
 # Transformación del scrapeo formateado a dataframe de Pandas
+# -----------------------------
 
+tableMain = "ZipsInfo"
 
-sqlToList = cur.execute(f"SELECT Country,Region,City,Zipcode FROM {tableMain}").fetchall()
+sqlToList = cur.execute(f"SELECT Country,Region,City,Zipcode,id_ori FROM {tableMain}").fetchall()
 
 df = pd.DataFrame(sqlToList, columns=["Country","Region","City","Zipcode"])
 

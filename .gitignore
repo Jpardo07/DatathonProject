@@ -19,3 +19,6 @@ geckodriver.log
 
 # Folder which saves compiled python files
 src/__pycache__/*
+
+# Logs generated
+*.log
