@@ -20,6 +20,14 @@ import sys
 
 
 # -----------------------------
+# Variables a modificar para adaptar el código
+# -----------------------------
+
+# Tabla a nombrar para la BBDD
+tableMain = "ZipsInfo"
+
+
+# -----------------------------
 # Importación de módulos
 # -----------------------------
 
@@ -334,8 +342,6 @@ driver.close()
 # -----------------------------
 # Transformación del scrapeo formateado a dataframe de Pandas
 # -----------------------------
-
-tableMain = "ZipsInfo"
 
 sqlToList = cur.execute(f"SELECT Country,Region,City,Zipcode,id_ori FROM {tableMain}").fetchall()
 
