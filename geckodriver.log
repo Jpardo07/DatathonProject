@@ -1,0 +1,38 @@
+1646912742904	geckodriver	INFO	Listening on 127.0.0.1:40987
+1646912742908	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "38289" "-no-remote" "-profile" "/tmp/rust_mozprofilemz8w2D"
+[GFX1-]: glxtest: libEGL initialize failed
+[GFX1-]: glxtest: EGL test failed
+1646912743774	Marionette	INFO	Marionette enabled
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilemz8w2D/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:38289/devtools/browser/67e419ca-3605-4af2-ab14-9599fe9ad22a
+1646912746450	Marionette	INFO	Listening on port 42283
+1646912746599	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://worldpostalcode.com"
+JavaScript error: , line 0: uncaught exception: undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/xt8fZ__SaXi8rLOjRFpxOtLjv0mS66MIGtFrZKZOLkM.js line 1 > eval line 632 > eval line 1 > eval line 1 > eval, line 1: WebGL warning: <Create>: WebglAllowWindowsNativeGl:false restricts context creation on this system.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/xt8fZ__SaXi8rLOjRFpxOtLjv0mS66MIGtFrZKZOLkM.js line 1 > eval line 632 > eval line 1 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL creation failed: 
+* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()
+* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://worldpostalcode.com"
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://worldpostalcode.com"
+1646912754102	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/xt8fZ__SaXi8rLOjRFpxOtLjv0mS66MIGtFrZKZOLkM.js line 1 > eval line 3786 > eval line 1 > eval line 1 > eval, line 1: WebGL warning: <Create>: WebglAllowWindowsNativeGl:false restricts context creation on this system.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/xt8fZ__SaXi8rLOjRFpxOtLjv0mS66MIGtFrZKZOLkM.js line 1 > eval line 3786 > eval line 1 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL creation failed: 
+* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()
+* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.warn: LoginRecipes: "getRecipes: falling back to a synchronous message for:" "https://worldpostalcode.com"
+JavaScript warning: https://pagead2.googlesyndication.com/bg/xt8fZ__SaXi8rLOjRFpxOtLjv0mS66MIGtFrZKZOLkM.js line 1 > eval line 6929 > eval line 1 > eval line 1 > eval, line 1: WebGL warning: <Create>: WebglAllowWindowsNativeGl:false restricts context creation on this system.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/xt8fZ__SaXi8rLOjRFpxOtLjv0mS66MIGtFrZKZOLkM.js line 1 > eval line 6929 > eval line 1 > eval line 1 > eval, line 1: Failed to create WebGL context: WebGL creation failed: 
+* WebglAllowWindowsNativeGl:false restricts context creation on this system. ()
+* Exhausted GL driver options. (FEATURE_FAILURE_WEBGL_EXHAUSTED_DRIVERS)
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1646912757197	Marionette	INFO	Stopped listening on port 42283
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.warn: TopSitesFeed: Failed to fetch data from Contile server: NetworkError when attempting to fetch resource.
+JavaScript error: chrome://remote/content/marionette/cert.js, line 55: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
