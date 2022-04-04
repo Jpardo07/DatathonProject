@@ -4,3 +4,6 @@ Cajamar_Agro_Analysis_EOI_Datacrop
 Cajamar_Agro_Analysis_Mondragon_Unibertsitatea_The_Data_Masters
 venv
 .devcontainer/*
+.Rprofile
+renv.lock
+renv/*
