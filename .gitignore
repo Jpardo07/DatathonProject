@@ -1,6 +1,8 @@
 # Virtual Environments
 penv
 renv
+venv
+.devcontainer/*
 
 # VsCode workspace configuration
 datathon.code-workspace
