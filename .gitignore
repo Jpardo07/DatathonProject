@@ -5,6 +5,7 @@ renv
 
 # VsCode workspace configuration
 datathon.code-workspace
+.devcontainer/*
 
 # R personal configuratiom
 .Rprofile
