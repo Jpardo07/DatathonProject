@@ -14,3 +14,7 @@ renv.lock
 # Specifical Folders
 Cajamar_Agro_Analysis_EOI_Datacrop
 Cajamar_Agro_Analysis_Mondragon_Unibertsitatea_The_Data_Masters
+
+# Files too large
+df_ventas_4_1.xlsx
+dfVentasdefinitivo.csv
