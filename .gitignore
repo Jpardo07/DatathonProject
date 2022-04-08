@@ -32,3 +32,8 @@ RestosNoClasificados/**
 docs/FaseLocal- Datahackers.zip
 df_ventas_4_1.xlsx
 dfVentasDefinitivo.csv
+
+# Secrets
+config.yml
+chromedriver
+chromedriver_linux64.zip
