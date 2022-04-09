@@ -37,3 +37,5 @@ dfVentasDefinitivo.csv
 config.yml
 chromedriver
 chromedriver_linux64.zip
+geckodriver-v0.30.0-linux64/geckodriver
+geckodriver-v0.30.0-linux64.tar.gz
