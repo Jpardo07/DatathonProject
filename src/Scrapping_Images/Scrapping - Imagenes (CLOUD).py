@@ -1,7 +1,7 @@
-# %% [markdown]
-# ### Importación de librerías
 
-# %%
+# Importación de librerías
+
+
 from selenium import webdriver # Webscrapping bot
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -12,7 +12,7 @@ from selenium.webdriver.chrome.options import Options as ChromiumOptions
 
 from selenium.webdriver.common.by import By
 
-# %%
+
 import logging # Para generar logs
 from logging.handlers import TimedRotatingFileHandler
 from logging import Formatter
@@ -21,27 +21,25 @@ import datetime
 import os
 import time
 
-# %%
-import pandas as pd #Manejo de dataframes
 
-# %% [markdown]
-# ### Variables a modificar para adaptar el código
+import pandas as pd # Manejo de dataframes
 
-# %%
+
+# Variables a modificar para adaptar el código
+
+
 urlToScrap ="https://images.google.com/"
 deleteOldLogs = True
 
 pathToDF = ""
-fileToDF = "ProdsToScrap.csv"
+fileToDF = "UrlMissing.csv"
 
 webdriverToUse = "firefox"
 
-# %% [markdown]
-# ### Pequeñas funciones de apoyo
 
-# %%
+# Pequeñas funciones de apoyo
+
 # Esta función se ha creado para mejorar comprensión de código en la configuración de logs
-
 def UTCFormatter(logFormatter):
     '''
     Recibe un formatter de logeo
@@ -50,10 +48,10 @@ def UTCFormatter(logFormatter):
     logFormatter.converter = time.gmtime
     return logFormatter
 
-# %% [markdown]
-# ### Configuración de logs
 
-# %%
+# Configuración de logs
+
+
 # Se inicia el proceso de registro de logs a nivel de INFO.
 logger = logging.getLogger('ScrapLog')
 logger.setLevel(logging.INFO)
@@ -63,7 +61,7 @@ timestamp = datetime.datetime.utcnow().strftime('%Y%m%d_%H-%M-%S')
 filename=f'ScrapImages{timestamp}.log'
 formatter = logging.Formatter('[%(asctime)s] %(name)s {%(filename)s:%(lineno)d} %(levelname)s - %(message)s')
 
-# %%
+
 '''
 Indican como se debe crear el archivo de log
 Si "deleteOldLogs" es True, sólo se conservará el último archivo de log
@@ -82,21 +80,13 @@ fileHandler.setLevel(logging.INFO)
 fileHandler.setFormatter(UTCFormatter(formatter))
 logger.addHandler(fileHandler)
 
-# %% [markdown]
-# ### Importación de datos
 
-# %%
+# Importación de datos
 df = pd.read_csv(f"{pathToDF}{fileToDF}")
-df.drop(columns=df.columns[0], axis=1, inplace=True)
 
-# %%
-print(df.shape)
-df.head(2)
 
-# %% [markdown]
-# ### Lógica del Scrapping
+# Lógica del Scrapping
 
-# %%
 def ScrapFunction(prodToScrap, urlToScrap, driver):
     try:
         logger.info(f"Started with: {prodToScrap}")
@@ -136,7 +126,7 @@ def ScrapFunction(prodToScrap, urlToScrap, driver):
         logger.info(f"FUNCTIONERROR: {prodToScrap}")
         return None
 
-# %%
+
 print("Starting Webscrapping!")
 
 
@@ -177,13 +167,8 @@ for position, element in enumerate(df["name"].tolist()):
 driver.close()
 
 
-# %%
-df.head()
+# Exportación de datos
 
-# %%
-df["url"].iloc[53]
-
-# %%
-df.to_csv("ScrapDef.csv", , index=False)
+df.to_csv("ScrapDef.csv", index=False)
 
 
