@@ -1,0 +1,14 @@
+
+Archivos demasiado pesados para almacenar en github
+
+----------------------------------
+
+df_ventas_4_1.xlsx
+https://www.dropbox.com/scl/fi/68eof4z4kpygrbfdcx3ro/df_ventas_4_1.xlsx?dl=0&rlkey=a6qmz9lwn609or1cxbdcgqirz
+
+----------------------------------
+
+dfVentasDefinitivos.csv
+https://www.dropbox.com/s/ij4dng0houivp96/dfVentasDefinitivo.csv?dl=0
+
+----------------------------------
