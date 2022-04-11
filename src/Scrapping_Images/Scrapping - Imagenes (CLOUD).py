@@ -1,6 +1,13 @@
 
-# Importación de librerías
+'''
+           __                                                  
+|  | _ |_ (_  _  _ _  _  _ o _  _    __   | _  _  _  _  _  _  _
+|/\|(-`|_)__)(_ | (_||_)|_)|| )(_)        ||||(_|(_)(-`| )(-`_)
+                     |  |      _/                _/            
 
+'''
+
+# Importación de librerías
 
 from selenium import webdriver # Webscrapping bot
 from selenium.webdriver.common.by import By
