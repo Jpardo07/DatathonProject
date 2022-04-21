@@ -32,21 +32,17 @@ RestosNoClasificados/**
 config.yml
 
 # Too large for Github
-docs/FaseLocal- Datahackers.zip
-df_ventas_4_1.xlsx
-dfVentasDefinitivo.csv
-docs/Envío Final/Atmira Pharma Visualization_Universidad Complutense de Madrid (UCM)_Datahackers/Software/Datasets tratados/General/Principales datasets usados/dfVentas.xlsx
-Inputs/Creados - Proyecto/dfVentasDef_V3.csv
+**/FaseLocal- Datahackers.zip
+**/df_ventas_4_1.xlsx
+**/dfVentasDefinitivo.csv
+**/dfVentas.xlsx
+**/dfVentasDef_V3.csv
+
+**/df_ventas_1.csv
+**/items_ordered_2years.csv
+**/df_ventas_3.csv
+**/df_ventas_2.csv
+**/df_ventas_1.csv
+**/items_ordered_2years_V2.csv
 
 
-docs/Envío Final/Atmira Pharma Visualization_Universidad Complutense de Madrid (UCM)_Datahackers/Software/Datasets tratados/General/Generados para depuración/df_ventas_1.csv
-.gitignore
-docs/Envío Final/OLD - Envío Final/Datasets tratados/General/Generados durante depuración/items_ordered_2years.csv
-docs/Envío Final/OLD - Envío Final/Datasets tratados/General/Generados durante depuración/df_ventas_3.csv
-docs/Envío Final/OLD - Envío Final/Datasets tratados/General/Generados durante depuración/df_ventas_2.csv
-docs/Envío Final/OLD - Envío Final/Datasets tratados/General/Generados durante depuración/df_ventas_1.csv
-docs/Envío Final/Atmira Pharma Visualization_Universidad Complutense de Madrid (UCM)_Datahackers/Software/Datasets tratados/General/Generados para depuración/df_ventas_2.csv
-docs/Envío Final/Atmira Pharma Visualization_Universidad Complutense de Madrid (UCM)_Datahackers/Software/Datasets tratados/General/Generados para depuración/df_ventas_3.csv
-docs/Envío Final/Atmira Pharma Visualization_Universidad Complutense de Madrid (UCM)_Datahackers/Software/Datasets tratados/General/Generados para depuración/items_ordered_2years.csv
-docs/Envío Final/Atmira Pharma Visualization_Universidad Complutense de Madrid (UCM)_Datahackers/Software/Datasets tratados/General/Principales datasets usados/items_ordered_2years_V2.csv
-docs/Envío Final/OLD - Envío Final/Datasets tratados/General/dfVentas.xlsx
