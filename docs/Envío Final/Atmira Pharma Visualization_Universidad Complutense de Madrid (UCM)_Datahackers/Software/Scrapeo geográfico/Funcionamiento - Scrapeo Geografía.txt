@@ -1,0 +1,27 @@
+  __                              __                     _ /     
+ (_   _ ._ _. ._   _   _    __   /__  _   _   _  ._ _. _|_    _. 
+ __) (_ | (_| |_) (/_ (_)        \_| (/_ (_) (_| | (_|  |  | (_| 
+              |                               _|                 
+              
+              
+En este directorio se detalla el código empleado para la obtención de la información geográfica adicional utilizada en el dashboard de visualización.
+
+Así, se recomienda utilizar el código localizado en el archivo "Scrapping - Zipcodes.ipynb".
+
+El dataset necesario para la reproducción del código se encuentra alojado en el apartado "General"/"Principales datasets usados" del directorio de datasets proporcionado.
+
+Para este caso, es necesario disponer de una instalación válida de la librería "Selenium" para Python3, así como un navegador Firefox y su webdriver "geckodriver".
+
+La demora de ejecución de código, en una instancia de alta capacidad computacional "c2-standard-4", se alargó por más de 9 horas.
+
+De este modo, se empleó una modalidad híbrida para la ejecución.
+
+* En primer lugar, se consiguió una base de datos en SQLite3 con datos geográficos scrapeados a partir del zipcode otorgado en el dataset original, mediante ejecución en máquina local.
+
+* En segundo lugar, con dicha base de datos que almacenaba un tercio de datos scrapeados (más de 300.000), se intentó completar el resto de filas. Así, esta computación si se llevó a cabo en Google Cloud y no requirió de internet para su ejecución.
+
+------------------------------------------------------
+
+La carpeta "Antiguo - Scrapeo geográfico" alberga el código original empleado para la obtención de la información geográfica. Sin embargo, con motivo de facilitar una mejor visualización y comprensión posterior del código, se decidió refactorizar y unificar toda la lógica bajo un único archivo con el nombre de "Scrapping - Zipcodes.ipynb" (presente en la misma ruta de este documento de texto).
+
+------------------------------------------------------

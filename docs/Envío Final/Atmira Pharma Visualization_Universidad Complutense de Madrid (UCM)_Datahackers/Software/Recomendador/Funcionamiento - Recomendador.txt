@@ -1,0 +1,15 @@
+  _                                              
+ |_)  _   _  _  ._ _   _  ._   _|  _.  _|  _  ._ 
+ | \ (/_ (_ (_) | | | (/_ | | (_| (_| (_| (_) |  
+ 
+                                                 
+El recomendador de productos está basado en Tensorflow. No se requiere más que el dataset y librerías indicadas en el informe para proceder a la ejecución de su código.
+
+Este dataset puede encontrarse en el apartado de datasets "General" y en "Principales datasets usados", ya que fue uno de los más empelados en el conjunto del proyecto.
+
+La demora del código total fue de una hora en una "Workbench" de "VertexAI" alojado en Google Cloud.
+Las capacidades alquiladas en dicho workbench fueron ocho CPUs de generación "Cascade Lake" de Intel optimizadas para alta capacidad de computación, acompañadas por 32GB de memoria RAM.
+
+No se alquilaron recursos de GPU por limitaciones de cuota entre otras cuestiones técnicas.
+
+------------------------------------------------------
