@@ -1,4 +1,3 @@
-
 # Virtual Environments
 penv
 renv
@@ -12,10 +11,6 @@ datathon.code-workspace
 .Rprofile
 renv.lock
 
-# Specifical Folders
-Cajamar_Agro_Analysis_EOI_Datacrop
-Cajamar_Agro_Analysis_Mondragon_Unibertsitatea_The_Data_Masters
-
 # Log from webdriver chosen
 geckodriver.log
 
@@ -25,11 +20,11 @@ src/__pycache__/*
 # Logs generated
 *.log
 
-# Trash not important to keep online
-RestosNoClasificados/**
-
 # Secrets
 config.yml
+
+# Folder to tests
+Tests/*
 
 # Too large for Github
 **/FaseLocal- Datahackers.zip
