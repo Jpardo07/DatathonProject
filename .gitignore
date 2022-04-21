@@ -1,20 +1,42 @@
+
 # Virtual Environments
 penv
 renv
 venv
-.devcontainer/*
 
 # VsCode workspace configuration
 datathon.code-workspace
+.devcontainer/*
 
 # R personal configuratiom
 .Rprofile
 renv.lock
 
-# Specifical Folders
-Cajamar_Agro_Analysis_EOI_Datacrop
-Cajamar_Agro_Analysis_Mondragon_Unibertsitatea_The_Data_Masters
+# Log from webdriver chosen
+geckodriver.log
 
-# Files too large
-df_ventas_4_1.xlsx
-dfVentasdefinitivo.csv
+# Folder which saves compiled python files
+src/__pycache__/*
+
+# Logs generated
+*.log
+
+# Secrets
+config.yml
+
+# Folder to tests
+Tests/*
+
+# Too large for Github
+**/FaseLocal- Datahackers.zip
+**/df_ventas_4_1.xlsx
+**/dfVentasDefinitivo.csv
+**/dfVentas.xlsx
+**/dfVentasDef_V3.csv
+
+**/df_ventas_1.csv
+**/items_ordered_2years.csv
+**/df_ventas_3.csv
+**/df_ventas_2.csv
+**/df_ventas_1.csv
+**/items_ordered_2years_V2.csv
