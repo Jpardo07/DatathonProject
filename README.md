@@ -1,8 +1,8 @@
-## UniversityHack 2022 - Atmira Pharma Visualization
+## GANADORES TERCEROS - UniversityHack 2022 (Atmira Pharma Visualization)
 
-## GANADOR TERCERO - ![ENLACE](#https://github.com/Alexvidalcor/DatathonProject)
+### ![Enlace al proyecto](https://www.datahackers.com.es/)
 
-### Equipo Datahackers
+## Equipo Datahackers
 
 **Universidad Complutense de Madrid - Máster big data y data science**
 
