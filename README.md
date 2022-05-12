@@ -1,4 +1,4 @@
-## GANADORES TERCEROS - UniversityHack 2022 (Atmira Pharma Visualization)
+## GANADORES TERCEROS - UniversityHack 2022 (Atmira Visualization)
 
 ### [Enlace al proyecto](https://www.datahackers.com.es/)
 
