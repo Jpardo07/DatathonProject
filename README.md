@@ -1,6 +1,6 @@
 ## UniversityHack 2022 - Atmira Pharma Visualization
 
-![GANADOR TERCERO](https://cloud.githubusercontent.com/assets/2864371/10368192/cad27ed0-6ddc-11e5-8150-4f9c14ab9602.png)
+![GANADOR TERCERO](#)
 
 ### Equipo Datahackers
 
