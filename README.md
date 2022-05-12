@@ -29,6 +29,15 @@ KPIs         |  Otros datos
 * [Sklearn](https://scikit-learn.org/stable/index.html) - Modelización
 
 
+## Licencia 📄
+
+Este proyecto está bajo la Licencia (GNU GPL-V3) - mira el archivo [LICENSE.md](LICENSE.md) para detalles.
+
+
+---
+⌨️ con ❤️ por [Alexvidalcor](https://github.com/Alexvidalcor), [Javier Pardo](https://github.com/Jpardo07) y [Daniel Píriz](https://github.com/dpirizf)
+
+
 
 
 
