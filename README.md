@@ -2,6 +2,8 @@
 
 ### [Enlace al proyecto](https://www.datahackers.com.es/)
 
+---
+
 ## Equipo Datahackers
 
 **Universidad Complutense de Madrid - Máster big data y data science**
